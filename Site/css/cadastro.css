@@ -1,0 +1,312 @@
+html body {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../imagens/fundoBody.png);
+    background-color: #D9D9D9;
+}
+
+/* Header, botão menu e menu hamburguer*/
+
+.header {
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    height: 65px;
+    width: 98%;
+    margin: auto;
+}
+
+.container img {
+    cursor: pointer;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.titulo {
+    color: yellow;
+}
+
+.navbar a, .navbar li {
+    color: #e3b062;
+    text-decoration: none;
+}
+
+/*Menu Hamburger*/
+
+.nav-button {
+    border: 0;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: black;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.nav-button i {
+    color: white;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9;
+    position: fixed;
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    font-size: 34px;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #FFD600;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 25px;
+    left: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px;}
+    .overlay, .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+/*banner e carrossel*/
+
+
+
+
+
+
+/* divisoria banner */
+.divisoria {
+    width: 100%;
+    height: 70px;
+    background-color: #FFD600;
+    margin-bottom: 50px;
+}
+
+.containerproje {
+    position: relative;
+}
+
+.containerproje .slide-container .slide{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 9%;
+}
+
+.containerproje .slide-container .slide .contentproje {
+    flex: 1 1 350px;
+    animation: slideContent .4s linear .4s backwards;
+}
+
+@keyframes slideContent {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+
+.containerproje .slide-container .slide .contentproje h3 {
+    font-size: 35px;
+    color: #FFD600;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.containerproje .slide-container .slide .contentproje p {
+    font-size: 16px;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+    width: 40%;
+    height: 10%;
+}
+
+.containerproje .slide-container .slide .contentproje .btnproj {
+    margin-top: 10px;
+    display: inline-block;
+    background: #a28908;
+    color: white;
+    font-size: 17px;
+    padding: 9px 40px;
+    border-radius: 5px;
+    border: 2px solid #a28908;
+    font-family: 'Noto Sans', sans-serif;
+    text-decoration: none;
+}
+
+.containerproje .slide-container .slide .contentproje .btnproj:hover {
+    background: #1d1a0a;
+    border: 2px solid #1d1a0a;
+    color: white;
+}
+
+.containerproje .slide-container {
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+.containerproje .slide-container.active {
+    display: block;
+} 
+
+.containerproje .slide-container:nth-child(1) .slide {
+    background: url(../imagens/fundoCarrossel.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.containerproje .slide-container:nth-child(2) .slide {
+    background: url(../imagens/cadastroCarrossel.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.containerproje .slide-container:nth-child(3) .slide {
+    background: url(../imagens/fundoThePit.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.containerproje .slide-container:nth-child(4) .slide {
+    background: url(../imagens/feedbackCarrossel.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.containerproje .slide-container:nth-child(5) .slide {
+    background: url(../imagens/sobreMimCarrossel.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.containerproje #prev, .containerproje #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    background: white;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bolder;
+    border-radius: 50px;
+}
+
+.containerproje #prev:hover, .containerproje #next:hover {
+    background: #FFD600;
+}
+
+.containerproje #prev {
+    left: 20px;
+}
+
+.containerproje #next {
+    right: 20px;
+}
+
+@media (max-width: 500px) {
+    .containerproje #prev {
+        top: 60%;
+        left: 0;
+    }
+    .containerproje #next {
+        top: 60%;
+        right: 0;
+    }
+    .containerproje .slide-container .slide .contentproje p {
+        font-size: 16px;
+        color: white;
+        font-family: 'Noto Sans', sans-serif;
+        width: 70%;
+        height: 10%; 
+    }
+}
+
+/* Fundo Cadastro */
+
+.fundoCadastro {
+    background-color: #D9D9D9;
+    background-image: url(../imagens/fundoBody.png);
+    width: 100%;
+    height: 734px;
+}
+
+.fundoCadastro .linha {
+    flex-grow: 1;
+    border-top: 2px solid black;
+    margin-left: 15px;
+    margin-right: 35px;
+    margin-top: 80px;
+}
+
+.tituloCadastro {
+    text-align: center;
+    color: #FFD600;
+    font-size: 30px;
+}
+
+.cadastro {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.inputDeCadastro {
+    display: flex;
+    flex-direction: column;
+}

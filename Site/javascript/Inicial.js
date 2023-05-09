@@ -31,3 +31,10 @@ function prev() {
 }
 
 setInterval(next, 7000);
+
+function botaoSaibaMaisInvasao() {
+    window.location.href="https://youtu.be/yXEQNA41aIw";
+}
+function botaoSaibaMaisThePit() {
+    window.location.href="https://youtu.be/35RH9MF2FZI";
+}
