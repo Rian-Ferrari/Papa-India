@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial | Refúgio 76</title>
+    <title>Cadastro | Refúgio 76</title>
     <link rel="shortcut icon" href="./imagens/faviconRefugio76.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="./css/cadastro.css">
     
@@ -68,7 +68,7 @@
                 <div class="contentproje">
                     <h3>Feedback</h3>
                         <p>
-                        ENVIE AQUI O SEU FEEDBACK!
+                        ENVIE  AQUI O SEU FEEDBACK!
                         </p>
                     <a href="#" class="btnproj" style="color: black;">CLIQUE AQUI</a>
                 </div>
@@ -107,26 +107,67 @@
             </div>
 
             <div class="inputDeCadastro">
-                <b>NOME</b>
-                <input type="text">
-                <b>E-MAIL</b>
-                <input type="email">
-                <b>CONFIRMAR E-MAIL</b>
-                <input type="email">
-                <b>SENHA</b>
-                <input type="password">
-                <b>CONFIRMAR SENHA</b>
-                <input type="password">
+                <b class="textoDasInputs">NOME</b>
+                <input class="inputDeEscrita" id="input_nome" type="text" >
+                <b class="textoDasInputs">E-MAIL</b>
+                <input class="inputDeEscrita" id="input_email" type="email">
+                <b class="textoDasInputs">CONFIRMAR E-MAIL</b>
+                <input class="inputDeEscrita" id="input_confirmarEmail" type="email">
+                <b class="textoDasInputs">SENHA</b>
+                <input class="inputDeEscrita" id="input_senha" type="password">
+                <b class="textoDasInputs">CONFIRMAR SENHA</b>
+                <input class="inputDeEscrita" id="input_confirmarSenha" type="password">
             </div>
+        </div>
 
+        <div id="div_cadastroDoUsuario" class="exibirCadastroDoUsuario">
+
+        </div>
+
+        <div class="botaoDoCadastro">
             <button class="botaoCadastrar" onclick="botaoCadastrarUsuario()">
                 CRIAR CONTA
             </button>
         </div>
+
+        <hr class="linha">
+
+        <div class="justificativaDeCriarConta">
+            <div class="tituloEJustificativa">
+                <h2 class="tituloJustificativa"><i><b>POR QUE EU DEVO CRIAR UMA CONTA?</b></i></h2>
+                
+                <span class="justificativa">Criar uma conta em nosso site você tem diversos benefícios, poderá 
+                    acompanhar seu “Farming” no jogo e salvar suas informações desses dados
+                    aqui, como também monitorar a média que você fez no dia, participar em 
+                    votações de nossas ações futuras e claro enviar seu Feedback para nosso site 
+                    na aba “Fale Conosco”, lá responderemos suas dúvidas via E-mail.</span>
+            </div>
+        </div>
+
+        <hr class="linha">
+
+        <img class="imagemCadastroFinal" src="./imagens/cadastroFinal.jpg" alt="CadastroFinal">
+
+        <div class="footer">
+            <div class="conteudo">
+                <h4>
+                    SOCIAL
+                </h4>
+
+                <h2>
+                    <i><a href="">Instagram</a></i>
+                    <img src="./imagens/logoInstagram.png" alt="logoInstagram">
+                </h4>
+            </div>
+        </div>
     </div>
+
+    
+       
+    
 
 </body>
 
-<script src="./javascript/Inicial.js"></script>
+<script src="./javascript/Cadastro.js"></script>
 
 </html>
