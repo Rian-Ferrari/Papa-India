@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial | Refúgio 76</title>
+    <title>Login | Refúgio 76</title>
     <link rel="shortcut icon" href="./imagens/faviconRefugio76.jpeg" type="image/x-icon">
-    <link rel="stylesheet" href="./css/inicial.css">
+    <link rel="stylesheet" href="./css/login.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -19,7 +19,7 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="fecharNav()">&times;</a>
                 
                     <div class="overlay-content">
-                    <a href="#">Inicial</a>
+                    <a href="./Inicial.html">Inicial</a>
                     <a href="./Cadastro.html">Cadastro</a>
                     <a href="#">Login</a>
                     <a href="#">Feedback</a>
@@ -91,4 +91,50 @@
         <div id="next" onclick="next()"> > </div>
 
     </section>
-    <script src="./javascript/Inicial.js"></script>
+    <script src="./javascript/Login.js"></script>
+
+    <div class="fundoLogin">
+        <hr class="linha">
+        <hr class="linha">
+
+        <h2 class="tituloLogin">LOGIN</h2>
+
+        <div class="login">
+            
+
+            <div class="VaultBoyAdrenalina">
+                <img src="./imagens/adrenalinaLogin.png" alt="VaultBoyAdrenalina">
+            </div>
+
+            <div class="inputDeLogin">
+                <b class="textoDasInputs">NOME</b>
+                <input class="inputDeEscrita" id="input_nome" type="text" >
+                <b class="textoDasInputs">E-MAIL</b>
+                <input class="inputDeEscrita" id="input_email" type="email">
+                <b class="textoDasInputs">SENHA</b>
+                <input class="inputDeEscrita" id="input_senha" type="password">
+            </div>
+        </div>
+
+        <div id="div_LoginDoUsuario" class="exibirLoginDoUsuario">
+
+        </div>
+
+        <div class="botaoDoLogin">
+            <button class="botaoLogar" onclick="botaoLoginUsuario()">
+                CONECTAR
+            </button>
+        </div>
+
+        <hr class="linha">
+
+        <img class="imagemLoginFinal" src="./imagens/loginBody.jpg" alt="Login1">
+
+        <hr class="linha">
+
+        <img class="imagemLoginFinal" src="./imagens/loginBody2.jpg" alt="LoginFinal">
+</body>
+
+<script src="./javascript/Login.js"></script>
+    
+</html>

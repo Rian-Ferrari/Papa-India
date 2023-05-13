@@ -21,7 +21,7 @@ function botaoCadastrarUsuario() {
                     div_cadastroDoUsuario.innerHTML = ``;
                     if  (dadosDoUsuario.confirmarSenha == dadosDoUsuario.senha)  {
 
-                        window.location.href="";
+                        window.location.href="Login.html";
                     }   else    {
                         div_cadastroDoUsuario.innerHTML = `<b style="color:red;">VERIFIQUE-SE SUA SENHA FOI
                 INSERIDO CORRETAMENTE!</b>`;
