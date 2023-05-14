@@ -45,7 +45,7 @@ function botaoLoginUsuario() {
         if (dadosDoUsuario.email.indexOf("@") && (dadosDoUsuario.email.endsWith(".com") || dadosDoUsuario.email.endsWith(".school"))) {
             div_LoginDoUsuario.innerHTML = ``;
 
-                if  ((dadosDoUsuario.senha.length > 8 && dadosDoUsuario.senha.length) < 16)  {
+                if  (dadosDoUsuario.senha.length > 8 && dadosDoUsuario.senha.length < 16)  {
 
                     window.location.href="";
                 }   else    {
