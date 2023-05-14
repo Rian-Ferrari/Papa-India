@@ -47,7 +47,62 @@ function botaoLoginUsuario() {
 
                 if  (dadosDoUsuario.senha.length > 8 && dadosDoUsuario.senha.length < 16)  {
 
-                    window.location.href="";
+                    fetch("/usuarios/autenticar", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            nomeServer: dadosDoUsuario.nome,
+                            emailServer: dadosDoUsuario.email,
+                            senhaServer: dadosDoUsuario.senha
+                        })
+                    }).then(function (resposta) {
+                        console.log("ESTOU NO THEN DO entrar()!")
+            
+                        if (resposta.ok) {
+                            console.log(resposta);
+            
+                            resposta.json().then(json => {
+                                console.log(json);
+                                console.log(JSON.stringify(json));
+            
+                                sessionStorage.EMAIL_USUARIO = json.email;
+                                sessionStorage.NOME_USUARIO = json.nome;
+                                sessionStorage.ID_USUARIO = json.idUsuario;
+            
+                                setTimeout(function () {
+                                    console.log('Conectado!');
+                                    window.location = "";
+                                    /*Colocar página da calculadora!*/
+                                }, 1000); // apenas para exibir o loading
+            
+                            });
+            
+                        } else {
+                            
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Eita...',
+                                text: 'Houve um erro ao tentar realizar o login!',
+                                imageUrl: './imagens/vaultBoyDeuRuim.gif'
+                            })
+
+                            console.log("Houve um erro ao tentar realizar o login!");
+            
+                            resposta.text().then(texto => {
+                                console.error(texto);
+                                finalizarAguardar(texto);
+                            });
+                        }
+            
+                    }).catch(function (erro) {
+                        console.log(erro);
+                    })
+            
+                    return false;
+
+
                 }   else    {
                     div_LoginDoUsuario.innerHTML = `<b style="color:red;">SUA SENHA DEVE CONTER 8-16 CARACTERES 
                     E TER UM "#"!</b>`;

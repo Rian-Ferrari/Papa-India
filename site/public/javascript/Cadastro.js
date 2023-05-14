@@ -40,11 +40,30 @@ function botaoCadastrarUsuario() {
 
                             if (resposta.ok) {
 
+                                Swal.fire({
+                                    imageUrl: './imagens/vaultBoyLike.gif',
+                                    title: 'Cadastro efetuado com sucesso!',
+                                    showClass: {
+                                      popup: 'animate__animated animate__fadeInDown'
+                                    },
+                                    hideClass: {
+                                      popup: 'animate__animated animate__fadeOutUp'
+                                    }
+                                  })
+
                                 setTimeout(() => {
                                     window.location = "Login.html";
-                                }, "2000")
+                                }, "3000")
 
                             } else {
+
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'Houve um erro ao tentar realizar o cadastro!',
+                                    imageUrl: './imagens/vaultBoyOps.gif'
+                                })
+
                                 throw ("Houve um erro ao tentar realizar o cadastro!");
                             }
                         }).catch(function (resposta) {
@@ -53,6 +72,8 @@ function botaoCadastrarUsuario() {
                         });
 
                         return false;
+
+                        
                     } else {
                         div_cadastroDoUsuario.innerHTML = `<b style="color:red;">VERIFIQUE-SE SUA SENHA FOI
                 INSERIDO CORRETAMENTE!</b>`;

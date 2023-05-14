@@ -4,34 +4,24 @@ USE refugio76;
 
 CREATE TABLE usuario (
 idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(100),
-senha VARCHAR(16),
-email VARCHAR(100)
+nome VARCHAR(100) UNIQUE NOT NULL, 
+senha VARCHAR(16) NOT NULL,
+email VARCHAR(100) UNIQUE NOT NULL
 );
-
-
-INSERT INTO usuario VALUES
-	(null, 'Lukas', '12062022', 'lukas.ferrari@gmail.com'),
-    (null, 'Rian', '12662022', 'rianferrari37@gmail.com');
     
-
     
 CREATE TABLE localidade (
 idLocal INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(100),
-complemento VARCHAR(150)
+nome VARCHAR(100) NOT NULL,
+complemento VARCHAR(150) NOT NULL
 ) AUTO_INCREMENT = 1000;
-
-INSERT INTO localidade VALUES
-	(null, 'Poseidon', 'Evento do Poseidon'),
-    (null, 'Mina BlackWater', 'Evento Febre do Urânio');
     
 
     
 CREATE TABLE farms (
 idFarms INT PRIMARY KEY AUTO_INCREMENT,
-dtFarms DATE,
-tipo VARCHAR(100),
+dtFarms DATE NOT NULL,
+tipo VARCHAR(100) NOT NULL,
 fkUsuario INT, 
 fkLocal INT, 
 CONSTRAINT fkUsuarioFarms FOREIGN KEY (fkUsuario) 
@@ -39,10 +29,6 @@ CONSTRAINT fkUsuarioFarms FOREIGN KEY (fkUsuario)
 CONSTRAINT fkLocalidadeFarms FOREIGN KEY (fkLocal) 
 	REFERENCES localidade(idLocal)
 ) AUTO_INCREMENT = 500;
-
-INSERT INTO farms VALUES
-	(null, '2023-05-05', 'Farm de Reator de Fusão', 1, 1000),
-    (null, '2023-05-06', 'Farm de Aço', 2, 1001);
     
 SELECT 
 nome AS NomeUsuario,

@@ -49,6 +49,13 @@ function botaoFeedbackUsuario() {
                 div_FeedbackDoUsuario.innerHTML = ``;
 
                 /*Colocar sweateralert aqui*/ 
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Mensagem enviada com sucesso!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             }   else    {
                 div_FeedbackDoUsuario.innerHTML = `<b style="color:red;">SUA MENSAGEM DEVE SER DE 0-300 CARACTERES 
                 !</b>`;
