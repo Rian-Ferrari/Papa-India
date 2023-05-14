@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Refúgio 76</title>
+    <link rel="shortcut icon" href="./imagens/faviconRefugio76.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/login.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <img onclick="mudarParaInicio()" src="./imagens/logoRefugio76Menu.jpg" alt="Refúgio76">
+                <div id="hamburger" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="fecharNav()">&times;</a>
+                
+                    <div class="overlay-content">
+                    <a href="./Inicial.html">Inicial</a>
+                    <a href="./Cadastro.html">Cadastro</a>
+                    <a href="./Login.html">Login</a>
+                    <a href="./Feedback.html">Feedback</a>
+                    <a href="#">Sobre Mim</a>
+                    </div>
+
+                </div>
+                
+                <button class="nav-button" onclick="abrirNav()">
+                    <i class="fa-solid fa-bars fa-2x"></i>
+                </button>
+        </div>
+    </div>
+
+    <section class="containerproje">
+        <div class="slide-container active">
+            <div class="slide">
+                <div class="contentproje">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide">
+                <div class="contentproje">
+                    <h3>CADASTRE-SE JÁ!</h3>
+                        <p>
+                        JUNTE-SE A NÓS, CRIE UMA CONTA.
+                        </p>
+                    <a href="./Cadastro.html" class="btnproj" style="color: black;">CLIQUE AQUI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide">
+                <div class="contentproje">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide">
+                <div class="contentproje">
+                    <h3>Feedback</h3>
+                        <p>
+                        ENVIE AQUI O SEU FEEDBACK!
+                        </p>
+                    <a href="#" class="btnproj" style="color: black;">CLIQUE AQUI</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-container">
+            <div class="slide">
+                <div class="contentproje">
+                    <h3>Sobre Mim</h3>
+                    <p>
+                        QUEM SOU EU?
+                    </p>
+                    <a href="#" class="btnproj" style="color: black;">SAIBA MAIS</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="prev" onclick="prev()"> < </div>
+        <div id="next" onclick="next()"> > </div>
+
+    </section>
+    <script src="./javascript/Login.js"></script>
+
+    <div class="fundoLogin">
+        <hr class="linha">
+        <hr class="linha">
