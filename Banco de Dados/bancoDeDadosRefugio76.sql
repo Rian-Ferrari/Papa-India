@@ -22,6 +22,7 @@ CREATE TABLE farms (
 idFarms INT PRIMARY KEY AUTO_INCREMENT,
 dtFarms DATE NOT NULL,
 tipo VARCHAR(100) NOT NULL,
+qtdFarm INT NOT NULL,
 fkUsuario INT, 
 fkLocal INT, 
 CONSTRAINT fkUsuarioFarms FOREIGN KEY (fkUsuario) 
