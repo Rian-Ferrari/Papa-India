@@ -16,7 +16,7 @@ function botaoCadastrarUsuario() {
             if (dadosDoUsuario.confirmarEmail == dadosDoUsuario.email) {
 
                 div_cadastroDoUsuario.innerHTML = ``;
-                if ((dadosDoUsuario.senha.length > 8 && dadosDoUsuario.senha.length) < 16 && dadosDoUsuario.senha.endsWith("#")) {
+                if ((dadosDoUsuario.senha.length > 8 && dadosDoUsuario.senha.length < 16) && dadosDoUsuario.senha.endsWith("#")) {
 
                     div_cadastroDoUsuario.innerHTML = ``;
                     if (dadosDoUsuario.confirmarSenha == dadosDoUsuario.senha) {

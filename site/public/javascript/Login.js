@@ -73,7 +73,7 @@ function botaoLoginUsuario() {
             
                                 setTimeout(function () {
                                     console.log('Conectado!');
-                                    window.location = "";
+                                    window.location = "home.html";
                                     /*Colocar página da calculadora!*/
                                 }, 1000); // apenas para exibir o loading
             

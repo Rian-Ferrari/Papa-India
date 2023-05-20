@@ -1,0 +1,324 @@
+html body {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../imagens/fundoBody.png);
+    background-color: #D9D9D9;
+}
+
+/* Header, botão menu e menu hamburguer*/
+
+.header {
+    background-color: black;
+    background-image: url(../imagens/fundoBody.png);
+}
+
+.container {
+    display: flex;
+    height: 65px;
+    width: 98%;
+    margin: auto;
+}
+
+.container img {
+    cursor: pointer;
+}
+
+.header .container {
+    justify-content: space-between;
+}
+
+.titulo {
+    color: yellow;
+}
+
+.navbar a, .navbar li {
+    color: #e3b062;
+    text-decoration: none;
+}
+
+.botaoDuvidaDoUsuario {
+    margin-right: 35px;
+    margin-top: 7px;
+    height: 50px;
+    width: 50px;
+    background-color: #FFD600;
+    color: black;
+    border-radius: 500px;
+    cursor: pointer;
+}
+
+.botaoDuvidaDoUsuario:hover {
+    background-color: #818181;
+}
+
+/*Menu Hamburger*/
+
+.nav-button {
+    border: 0;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: black;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.nav-button i {
+    color: white;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    font-size: 34px;
+    transition: 0.3s;
+}
+
+.overlay h2 {
+    color: #FFD600;
+    font-size: 50px;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #FFD600;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px;}
+    .overlay, .closebtn {
+        font-size: 40px;
+        top: 15px;
+        left: 45px;
+    }
+}
+
+/* fundo cadastrar local */
+
+.fundoCadastrarLocal {
+    display: flex;
+    background-image: url(../imagens/fundoDashboard.jpeg);
+    width: 100%;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-bottom: 12rem;
+}
+
+.tituloCadastrarLocal {
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 50px;
+    color: #FFD600;
+}
+
+.cardCadastrarLocal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    border: 2px solid #FFD600;
+    border-radius: 23px;
+    color: white;
+    width: 35rem;
+    height: 40rem;
+    flex-direction: column;
+}
+
+.tituloDentroDoCardLocalidade {
+    text-align: center;
+    padding-bottom: 2.2rem;
+    font-size: 30px;
+}
+
+.cardCadastrarLocal h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.inputNomeLocal {
+    padding-top: 0.7rem;
+    border: 3px solid #FFD600;
+    border-radius: 9px;
+}
+
+.inputComplementoLocal {
+    padding-top: 0.7rem;
+    padding-bottom: 6rem;
+    border: 3px solid #FFD600;
+    border-radius: 9px;
+}
+
+.tituloComplementoLocal {
+    padding-top: 3rem;
+}
+
+.botaoAdicionarLocal {
+    margin-top: 5.5rem;
+    color: white;
+    background-color: #FFD600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 23px;
+    border: 1px solid #FFD600;
+}
+
+.botaoAdicionarLocal:hover {
+    color: #FFD600;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* fundo cadastrar farm */
+
+.fundoCadastrarFarm {
+    display: flex;
+    background-image: url(../imagens/fundoDashboardFarms.jpg);
+    width: 100%;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-bottom: 12rem;
+}
+
+.tituloCadastrarFarm {
+    align-items: center;
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 50px;
+    color: #05FF00;
+}
+
+.cardCadastrarFarm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    border: 2px solid #05FF00;
+    border-radius: 23px;
+    color: white;
+    width: 35rem;
+    height: 40rem;
+    flex-direction: column;
+}
+
+.tituloDentroDoCardFarm {
+    text-align: center;
+    font-size: 30px;
+}
+
+.cardCadastrarFarm h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.inputNomeFarm {
+    padding-top: 0.7rem;
+    border: 3px solid #05FF00;
+    border-radius: 9px;
+}
+
+.inputComplementoFarm {
+    padding-top: 0.7rem;
+    padding-bottom: 6rem;
+    border: 3px solid #05FF00;
+    border-radius: 9px;
+}
+
+.tituloDataFarm {
+    padding-top: 3rem;
+}
+
+.spanDasDatas {
+    color: #05FF00;
+    text-align: center;
+}
+
+.divsDasInputs {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}
+
+.botaoAdicionarFarm {
+    margin-top: 1rem;
+    color: white;
+    background-color: #05FF00;
+    padding: 0.5rem 1.5rem;
+    border-radius: 23px;
+    border: 1px solid #05FF00;
+}
+
+.botaoAdicionarFarm:hover {
+    color: #05FF00;
+    background-color: #026800;
+    cursor: pointer;
+}
+
+.inputDataFarm {
+    border: 3px solid #05FF00;
+    border-radius: 9px;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+}
+
+.inputDataFarmAno {
+    border: 3px solid #05FF00;
+    border-radius: 9px;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+
+.inputsDasDatas {
+    display: flex;
+}
+
+.inputTipoFarm {
+    padding-top: 0.7rem;
+    border: 3px solid #05FF00;
+    border-radius: 9px;
+}
+
+.inputQuantidadeFarm {
+    padding-top: 0.7rem;
+    border: 3px solid #05FF00;
+    border-radius: 9px;
+}
