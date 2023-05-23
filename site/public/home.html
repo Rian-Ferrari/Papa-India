@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,87 +9,119 @@
     <link rel="shortcut icon" href="./imagens/faviconRefugio76.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="./Dashboard css/home.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+
 <body>
 
     <div class="header">
         <div class="container">
             <div id="hamburger" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="fecharNav()">&times;</a>
-                
-                    <div class="overlay-content">
-                    <h2 id="nomeUsuario">Underfined</h2>
+
+                <div class="overlay-content">
+                    <h2><span id="b_usuario">Underfined</span></h2>
 
                     <a href="#">Home</a>
-                    <a href="./Cadastro.html">Cadastro</a>
-                    <a href="./Login.html">Login</a>
-                    <a href="./Feedback.html">Feedback</a>
-                    <a href="./Sobremim.html">Sobre Mim</a>
-                    </div>
+                    <a href="./Cadastro.html">Gráficos</a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
 
             </div>
-                
-                <button class="nav-button" onclick="abrirNav()">
-                    <i class="fa-solid fa-bars fa-2x"></i>
-                </button>
 
-                <button class="botaoDuvidaDoUsuario" onclick="botaoDuvidaDoUsuario()">
-                    ?
-                </button>
+            <button class="nav-button" onclick="abrirNav()">
+                <i class="fa-solid fa-bars fa-2x"></i>
+            </button>
+
+            <button class="botaoDuvidaDoUsuario" onclick="botaoDuvidaDoUsuario()">
+                ?
+            </button>
         </div>
     </div>
 
-    
+
 
     <div class="fundoCadastrarLocal">
         <h1 class="tituloCadastrarLocal">CADASTRAR LOCAL</h1>
-            <div class="cardCadastrarLocal">
-                <h1 class="tituloDentroDoCardLocalidade">LOCALIDADE DO FARM</h1>
-                <h1>NOME DO LOCAL</h1>
-                <input class="inputNomeLocal" type="text" id="input_nomeDoLocal">
-                <h1 class="tituloComplementoLocal">COMPLEMENTO DO LOCAL</h1>
-                <input class="inputComplementoLocal" type="text" id="input_complementoDoLocal">
-                <button class="botaoAdicionarLocal" onclick="botaoAdicionarLocal()">
-                    ADICIONAR
-                </button>
-            </div>
-            
+        <div class="cardCadastrarLocal">
+            <h1 class="tituloDentroDoCardLocalidade">LOCALIDADE DO FARM</h1>
+            <h1>NOME DO LOCAL</h1>
+            <input class="inputNomeLocal" placeholder="Ex: Usina Poseidon" type="text" id="input_nomeDoLocal">
+            <h1 class="tituloComplementoLocal">COMPLEMENTO DO LOCAL</h1>
+            <input class="inputComplementoLocal" type="text"
+                placeholder="Ex: Farm de reator de fusão no Evento: Energizando Poseidon."
+                id="input_complementoDoLocal">
+            <button class="botaoAdicionarLocal" onclick="botaoAdicionarLocal()">
+                ADICIONAR
+            </button>
+        </div>
+
     </div>
 
     <div class="fundoCadastrarFarm">
         <h1 class="tituloCadastrarFarm">CADASTRAR FARM</h1>
-            <div class="cardCadastrarFarm">
-                <h1 class="tituloDentroDoCardFarm">TIPO DO FARM</h1>
-                <h1>NOME DO FARM</h1>
-                <input class="inputNomeFarm" type="text" id="input_nomeDoFarm">
-                <h1 class="tituloDataFarm">DATA</h1>
-                    <div class="inputsDasDatas">
-                        <div class="divsDasInputs">
-                            <span class="spanDasDatas">DIA</span>
-                            <input class="inputDataFarm" type="text" id="input_dataDoFarm">
-                        </div>
-                        <div class="divsDasInputs">
-                            <span class="spanDasDatas">MÊS</span>
-                            <input class="inputDataFarm" type="text" id="input_dataDoFarm"></div>
-                        <div class="divsDasInputs">
-                            <span class="spanDasDatas">ANO</span>
-                            <input class="inputDataFarmAno" type="text" id="input_dataDoFarm"></div>
-                        </div>
-                <h1>TIPO</h1>
-                <input class="inputTipoFarm" type="text" id="input_tipoDoFarm">
-
-                <h1>QUANTIDADE</h1>
-                <input class="inputQuantidadeFarm" type="text" id="input_quantidadeDoFarm">
-
-                <button class="botaoAdicionarFarm" onclick="botaoAdicionarFarm()">
-                    ADICIONAR
-                </button>
+        <div class="cardCadastrarFarm">
+            <h1 class="tituloDentroDoCardFarm">TIPO DO FARM</h1>
+            <h1>NOME DO FARM</h1>
+            <input class="inputNomeFarm" placeholder="Ex: Usina Poseidon" type="text" id="input_nomeDoFarm">
+            <h1 class="tituloDataFarm">DATA</h1>
+            <div class="inputsDasDatas">
+                <div class="divsDasInputs">
+                    <span class="spanDasDatas">DIA</span>
+                    <input class="inputDataFarm" placeholder="XX" type="number" min="0" max="31" id="input_dataDoFarm">
+                </div>
+                <div class="divsDasInputs">
+                    <span class="spanDasDatas">MÊS</span>
+                    <input class="inputDataFarm" placeholder="YY" type="number" min="0" max="12" id="input_dataDoFarm">
+                </div>
+                <div class="divsDasInputs">
+                    <span class="spanDasDatas">ANO</span>
+                    <input class="inputDataFarmAno" placeholder="ZZZZ" type="number" min="0" id="input_dataDoFarm">
+                </div>
             </div>
-            
+            <h1>TIPO</h1>
+            <input class="inputTipoFarm" placeholder="Ex: Reator de Fusão" type="text" id="input_tipoDoFarm">
+
+            <h1>QUANTIDADE</h1>
+            <input class="inputQuantidadeFarm" placeholder="Ex: 200" type="number" id="input_quantidadeDoFarm">
+
+            <button class="botaoAdicionarFarm" onclick="botaoAdicionarFarm()">
+                ADICIONAR
+            </button>
+        </div>
     </div>
-    
+
+    <h2 class="tituloDuvidas">SEJA MUITO BEM-VINDO(A)!</h2>
+
+    <hr class="linha">
+
+        <div class="cadastrarLocalECadastrarFarm">
+            <span class="spansLocalEFarm">
+                CADASTRAR LOCAL:
+                Nesse card você deve
+                colocar o nome do local
+                e o complemento, para
+                sabemos e fazer uma
+                análise na localidade de
+                seus Farms.
+            </span>
+            <span class="spansLocalEFarm">
+                CADASTRAR FARM:
+                Nesse card você deve
+                colocar um nome de um
+                local ja adicionado por
+                você, uma data quando
+                iniciou seu Farm, tipo do
+                Farm e a quantidade do
+                item que você fez no dia.
+            </span>
+        </div>
+
 </body>
 
 <script src="./jsDashboard/home.js"></script>

@@ -9,3 +9,5 @@ function fecharNav() {
 function mudarParaInicio() {
     window.location.href="Inicial.html";
 }
+
+b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
