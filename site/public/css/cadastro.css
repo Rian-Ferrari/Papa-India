@@ -189,7 +189,7 @@ body {
     display: block;
 } 
 
-.containerproje .slide-container:nth-child(1) .slide {
+.containerproje .slide-container:nth-child(2) .slide {
     background: url(../imagens/fundoCarrossel.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -197,7 +197,7 @@ body {
     height: 100%;
 }
 
-.containerproje .slide-container:nth-child(2) .slide {
+.containerproje .slide-container:nth-child(1) .slide {
     background: url(../imagens/cadastroCarrossel.jpg);
     background-size: cover;
     background-repeat: no-repeat;
