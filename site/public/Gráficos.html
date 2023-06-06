@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos | Refúgio 76</title>
+    <link rel="shortcut icon" href="./imagens/faviconRefugio76.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="./Dashboard css/graficos.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div id="hamburger" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="fecharNav()">&times;</a>
+
+                <div class="overlay-content">
+                    <h2 id="nomeUsuario"><span id="b_usuario">Underfined</span></h2>
+
+                    <a href="./home.html">Home</a>
+                    <a href="#">Gráficos</a>
+                    <div class="divBotao">
+                        <button class="btn" onclick="mudarParaInicio()">
+                            <strong>Voltar ao Menu</strong>
+                            <div id="container-stars">
+                                <div id="stars"></div>
+                            </div>
+
+                            <div id="glow">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="nav-button" onclick="abrirNav()">
+                <i class="fa-solid fa-bars fa-2x"></i>
+            </button>
+        </div>
+    </div>
+</body>
+
+<script src="./jsDashboard/graficos.js"></script>
+
+</html>

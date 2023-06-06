@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Farms | Refúgio 76</title>
+    <title>Cadastro Farms e Locais | Refúgio 76</title>
     <link rel="shortcut icon" href="./imagens/faviconRefugio76.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="./Dashboard css/home.css">
 
@@ -25,8 +25,21 @@
                 <div class="overlay-content">
                     <h2 id="nomeUsuario"><span id="b_usuario">Underfined</span></h2>
 
-                    <a href="#">Home</a>
-                    <a href="#">Gráficos</a>
+                    <a href="#">Cadastro Farms e Locais</a>
+                    <a href="./Gráficos.html">Gráficos</a>
+                    <div class="divBotao">
+                        <button class="btn" onclick="mudarParaInicio()">
+                            <strong>Voltar ao Menu</strong>
+                            <div id="container-stars">
+                                <div id="stars"></div>
+                            </div>
+
+                            <div id="glow">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -41,19 +54,15 @@
         </div>
     </div>
 
-
-
     <div class="fundoCadastrarLocal">
         <h1 class="tituloCadastrarLocal">CADASTRAR LOCAL</h1>
         <div class="cardCadastrarLocal">
             <h1 class="tituloDentroDoCardLocalidade">LOCALIDADE DO FARM</h1>
             <h1>NOME DO LOCAL</h1>
-            <input required class="inputNomeLocal" type="text" id="input_nomeDoLocal">
+            <input required placeholder="Ex: Usina Poseidon" class="inputNomeLocal" type="text" id="input_nomeDoLocal">
             <h1 class="tituloComplementoLocal">COMPLEMENTO DO LOCAL</h1>
-            <input required class="inputComplementoLocal" type="text" id="input_complementoDoLocal">
-            <button class="botaoAdicionarLocal" onclick="botaoAdicionarLocal()">
-                ADICIONAR
-            </button>
+            <input required placeholder="Ex: Farm de reator de fusão no Evento: Energizando Poseidon."
+                class="inputComplementoLocal" type="text" id="input_complementoDoLocal">
             <div id="div_mensagemDeErro">
 
             </div>
@@ -65,33 +74,39 @@
         <h1 class="tituloCadastrarFarm">CADASTRAR FARM</h1>
         <div class="cardCadastrarFarm">
             <h1 class="tituloDentroDoCardFarm">TIPO DO FARM</h1>
-            <h1>NOME DO FARM</h1>
-            <input required class="inputNomeFarm" type="text" id="input_nomeDoFarm">
+            <h1>CONFIRMAR NOME DO LOCAL</h1>
+            <input required placeholder="Ex: Usina Poseidon" class="inputNomeFarm" type="text" id="input_nomeDoFarm">
             <h1 class="tituloDataFarm">DATA</h1>
             <div class="inputsDasDatas">
                 <div class="divsDasInputs">
                     <span class="spanDasDatas">DIA</span>
-                    <input class="inputDataFarm" type="text" id="input_dataDiaFarm">
+                    <input required placeholder="XX" class="inputDataFarm" min="1" max="31" type="number"
+                        id="input_dataDiaFarm">
                 </div>
                 <div class="divsDasInputs">
                     <span class="spanDasDatas">MÊS</span>
-                    <input required class="inputDataFarm" type="text" id="input_dataMesFarm">
+                    <input required placeholder="YY" class="inputDataFarm" min="1" max="12" type="number"
+                        id="input_dataMesFarm">
                 </div>
                 <div class="divsDasInputs">
                     <span class="spanDasDatas">ANO</span>
-                    <input required class="inputDataFarmAno" type="text" id="input_dataAnoFarm">
+                    <input required placeholder="ZZZZ" class="inputDataFarmAno" type="number" id="input_dataAnoFarm">
                 </div>
             </div>
             <h1>TIPO</h1>
-            <input required class="inputTipoFarm" type="text" id="input_tipoDoFarm">
+            <input required placeholder="Ex: Reator de Fusão" class="inputTipoFarm" type="text" id="input_tipoDoFarm">
 
             <h1>QUANTIDADE</h1>
-            <input required class="inputQuantidadeFarm" type="text" id="input_quantidadeDoFarm">
+            <input required placeholder="Ex: 200" class="inputQuantidadeFarm" type="number" id="input_quantidadeDoFarm">
 
-            <button class="botaoAdicionarFarm" onclick="botaoAdicionarFarm()">
-                ADICIONAR
-            </button>
+            <div id="exibirAlertaDeErro">
+
+            </div>
         </div>
+
+        <button class="botaoAdicionarFarmELocal" onclick="botaoAdicionarFarmELocal()">
+            ADICIONAR
+        </button>
 
     </div>
 

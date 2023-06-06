@@ -37,8 +37,7 @@ body {
     color: yellow;
 }
 
-.navbar a,
-.navbar li {
+.navbar a, .navbar li {
     color: #e3b062;
     text-decoration: none;
 }
@@ -108,8 +107,7 @@ body {
     font-size: 70px;
 }
 
-.overlay a:hover,
-.overlay a:focus {
+.overlay a:hover, .overlay a:focus {
     color: #FFD600;
 }
 
@@ -121,12 +119,8 @@ body {
 }
 
 @media screen and (max-height: 450px) {
-    .overlay a {
-        font-size: 20px;
-    }
-
-    .overlay,
-    .closebtn {
+    .overlay a {font-size: 20px;}
+    .overlay, .closebtn {
         font-size: 40px;
         top: 15px;
         left: 45px;
@@ -309,229 +303,4 @@ strong {
     100% {
         transform: scale(0.75);
     }
-}
-
-/* fundo cadastrar local */
-
-.fundoCadastrarLocal {
-    display: flex;
-    background-image: url(../imagens/fundoDashboard.jpeg);
-    width: 100%;
-    background-repeat: no-repeat;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    padding-bottom: 12rem;
-}
-
-.tituloCadastrarLocal {
-    align-items: center;
-    text-align: center;
-    padding-top: 2rem;
-    font-size: 50px;
-    color: #FFD600;
-}
-
-.cardCadastrarLocal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    border: 2px solid #FFD600;
-    border-radius: 23px;
-    color: white;
-    width: 35rem;
-    height: 40rem;
-    flex-direction: column;
-}
-
-.tituloDentroDoCardLocalidade {
-    text-align: center;
-    padding-bottom: 2.2rem;
-    font-size: 30px;
-}
-
-.cardCadastrarLocal h1 {
-    text-align: center;
-    font-size: 30px;
-}
-
-.inputNomeLocal {
-    padding-top: 0.7rem;
-    border: 3px solid #FFD600;
-    border-radius: 9px;
-}
-
-.inputComplementoLocal {
-    padding-top: 0.7rem;
-    padding-bottom: 6rem;
-    border: 3px solid #FFD600;
-    border-radius: 9px;
-}
-
-.tituloComplementoLocal {
-    padding-top: 3rem;
-}
-
-/* fundo cadastrar farm */
-
-.fundoCadastrarFarm {
-    display: flex;
-    background-image: url(../imagens/fundoDashboardFarms.jpg);
-    width: 100%;
-    background-repeat: no-repeat;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    padding-bottom: 12rem;
-    align-items: center;
-}
-
-.tituloCadastrarFarm {
-    align-items: center;
-    text-align: center;
-    padding-top: 1rem;
-    font-size: 50px;
-    color: #05FF00;
-}
-
-.cardCadastrarFarm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    border: 2px solid #05FF00;
-    border-radius: 23px;
-    color: white;
-    width: 35rem;
-    height: 40rem;
-    flex-direction: column;
-}
-
-.tituloDentroDoCardFarm {
-    text-align: center;
-    font-size: 30px;
-}
-
-.cardCadastrarFarm h1 {
-    text-align: center;
-    font-size: 30px;
-}
-
-.inputNomeFarm {
-    padding-top: 0.7rem;
-    border: 3px solid #05FF00;
-    border-radius: 9px;
-}
-
-.inputComplementoFarm {
-    padding-top: 0.7rem;
-    padding-bottom: 6rem;
-    border: 3px solid #05FF00;
-    border-radius: 9px;
-}
-
-.tituloDataFarm {
-    padding-top: 3rem;
-}
-
-.spanDasDatas {
-    color: #05FF00;
-    text-align: center;
-}
-
-.divsDasInputs {
-    display: flex;
-    flex-direction: column;
-    padding-left: 1rem;
-}
-
-.botaoAdicionarFarmELocal {
-    margin-top: 5em;
-    width: 9em;
-    height: 3em;
-    border-radius: 30em;
-    font-size: 15px;
-    border: none;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 6px 6px 12px #05FF00,
-        -6px -6px 12px #165100;
-}
-
-.botaoAdicionarFarmELocal::before {
-    content: '';
-    width: 0;
-    height: 3em;
-    border-radius: 30em;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
-    transition: .5s ease;
-    display: block;
-    z-index: -1;
-}
-
-.botaoAdicionarFarmELocal:hover::before {
-    width: 9em;
-}
-
-.inputDataFarm {
-    border: 3px solid #05FF00;
-    border-radius: 9px;
-    width: 30px;
-    height: 25px;
-    text-align: center;
-}
-
-.inputDataFarmAno {
-    border: 3px solid #05FF00;
-    border-radius: 9px;
-    width: 40px;
-    height: 25px;
-    text-align: center;
-}
-
-.inputsDasDatas {
-    display: flex;
-}
-
-.inputTipoFarm {
-    padding-top: 0.7rem;
-    border: 3px solid #05FF00;
-    border-radius: 9px;
-}
-
-.inputQuantidadeFarm {
-    padding-top: 0.7rem;
-    border: 3px solid #05FF00;
-    border-radius: 9px;
-}
-
-/* Footer home */
-
-.tituloFooter {
-    color: #2D607B;
-    font-size: 40px;
-    text-align: center;
-}
-
-.linha {
-    flex-grow: 1;
-    border-top: 2px solid black;
-    margin-left: 15px;
-    margin-right: 35px;
-}
-
-.fundoDuvida {
-    display: flex;
-    justify-content: space-between;
-}
-
-.spanDuvida {
-    font-size: 45px;
-    text-align: left;
 }

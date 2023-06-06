@@ -97,10 +97,60 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarFarmELocal(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var local = req.body.localServer;
+    var complemento = req.body.complementoServer;
+    var dia = req.body.diaServer;
+    var mes = req.body.mesServer;
+    var ano = req.body.anoServer;
+    var tipo = req.body.tipoServer;
+    var quantidade = req.body.qtdServer;
+    var fkUsuario = req.body.usuarioServer;
+
+    // Faça as validações dos valores
+    if (local == undefined) {
+        res.status(400).send("Seu local está undefined!");
+    } else if (complemento == undefined) {
+        res.status(400).send("Seu complemento está undefined!");
+    } else if (dia == undefined) {
+        res.status(400).send("Seu dia está undefined!");
+    } else if (mes == undefined) {
+        res.status(400).send("Seu mes está undefined!");
+    } else if (ano == undefined) {
+        res.status(400).send("Seu ano está undefined!");
+    } else if (tipo == undefined) {
+        res.status(400).send("Seu tipo está undefined!");
+    } else if (quantidade == undefined) {
+        res.status(400).send("Seu quantidade está undefined!");
+    } else if (fkUsuario == undefined) {
+        res.status(400).send("Seu fkUsuario está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarFarmELocal(local, complemento, dia, mes, ano, tipo, quantidade, fkUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    cadastrarFarmELocal
 }
