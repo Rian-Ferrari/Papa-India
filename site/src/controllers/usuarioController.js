@@ -33,10 +33,10 @@ function entrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else if (nome == undefined)  {
+    } else if (nome == undefined) {
         res.status(400).send("Seu nome está indefinida!");
-    }   else    {
-        
+    } else {
+
         usuarioModel.entrar(nome, email, senha)
             .then(
                 function (resultado) {
@@ -77,7 +77,7 @@ function cadastrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha)
             .then(
@@ -126,12 +126,29 @@ function cadastrarFarmELocal(req, res) {
     } else if (fkUsuario == undefined) {
         res.status(400).send("Seu fkUsuario está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarFarmELocal(local, complemento, dia, mes, ano, tipo, quantidade, fkUsuario)
+        usuarioModel.cadastrarLocal(local, complemento)
             .then(
                 function (resultado) {
-                    res.json(resultado);
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length == 1) {
+                        console.log(resultado);
+                        resposta.json().then(json => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
+        
+                            fkLocal = json.idLocal;
+                            cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal)
+                        });
+                        res.json(resultado[0]);
+                    } else if (resultado.length == 0) {
+                        res.status(403).send("Cadastro Local farm inválidos");
+                    } else {
+                        res.status(403).send("Error");
+                    }
                 }
             ).catch(
                 function (erro) {
@@ -146,11 +163,33 @@ function cadastrarFarmELocal(req, res) {
     }
 }
 
+function cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal) {
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    usuarioModel.cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    cadastrarFarmELocal
+    cadastrarFarmELocal,
+    cadastrarFarm
 }

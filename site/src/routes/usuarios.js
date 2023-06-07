@@ -17,7 +17,7 @@ router.post("/cadastrar", function (req, res) {
 })
 
 router.post("/cadastrarFarmELocal", function (req, res) {
-    usuarioController.cadastrarLocal(req, res);
+    usuarioController.cadastrarFarmELocal(req, res);
 })
 
 router.post("/autenticar", function (req, res) {

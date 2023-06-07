@@ -31,7 +31,7 @@ function cadastrar(nome, email, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrarFarmELocal(local, complemento, dia, mes, ano, tipo, quantidade, fkUsuario) {
+function cadastrarLocal(local, complemento) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",local, complemento, dia, mes, ano, tipo, quantidade, fkUsuario);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
@@ -39,20 +39,33 @@ function cadastrarFarmELocal(local, complemento, dia, mes, ano, tipo, quantidade
     var instrucao = `
         INSERT INTO localidade (nome, complemento) VALUES ('${local}', '${complemento}');
     `;
+    // var instrucao = `
+    //     INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${mes}-${dia}-${ano}', '${tipo}', '${quantidade}', '${fkUsuario}', '${local}');
+    // `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    PegarIdLocalidade(local, complemento)
+    return database.executar(instrucao);
+}
+
+function PegarIdLocalidade(local, complemento) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",local, complemento);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${mes}-${dia}-${ano}', '${tipo}', '${quantidade}', '${fkUsuario}', '${local}');
+        SELECT idLocal FROM localidade WHERE nome = "${local}" AND complemento = "${complemento}";
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-function cadastrarLocal() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", local, complemento);
+function cadastrarFarm(mes, dia, ano, tipo, quantidade, fkUsuario, fkLocal) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", mes, dia, ano, tipo, quantidade, fkUsuario, fkLocal);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO localidade (nome, complemento) VALUES ('${local}', '${complemento}');
+        INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${mes}-${dia}-${ano}', '${tipo}', '${quantidade}', '${fkUsuario}', '${fkLocal}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -62,5 +75,6 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    cadastrarFarmELocal
+    cadastrarLocal,
+    cadastrarFarm
 };
