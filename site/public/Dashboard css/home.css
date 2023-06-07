@@ -527,11 +527,152 @@ strong {
 }
 
 .fundoDuvida {
+    padding-top: 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-.spanDuvida {
-    font-size: 45px;
-    text-align: left;
+.fotoDuvida {
+    margin-left: 4rem;   
+    width: 1100px;
+    height: 588px;
+    position: absolute;
+    display: flex;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+/* Card duvida local  */
+
+.cardDuvida {
+    width: 380px;
+    height: 508px;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+
+.cardDuvida-inner {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, .05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+}
+
+.cardDuvida:hover {
+    transform: scale(1.04) rotate(1deg);
+}
+
+.circulo {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#05FF00, #036900);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+
+.pFarm {
+    padding-top: 1rem;
+    text-align: center;
+    color: #05FF00;
+    font-size: 2rem;
+}
+
+.spanFarm {
+    align-items: center;
+    font-size: 36px;
+}
+
+.circulo:nth-child(1) {
+    top: -25px;
+    left: -25px;
+}
+
+.circulo:nth-child(2) {
+    bottom: -25px;
+    right: -25px;
+    animation-name: move-down1;
+}
+
+@keyframes move-up6 {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes move-down1 {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+/* Card duvida farm  */
+
+.cardDuvida2 {
+    width: 380px;
+    height: 508px;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+
+.cardDuvida-inner2 {
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, .05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+}
+
+.cardDuvida2:hover {
+    transform: scale(1.04) rotate(1deg);
+}
+
+.circulo2 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#FFD600, #856f00);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+
+.pLocal {
+    padding-top: 1rem;
+    text-align: center;
+    color: #FFD600;
+    font-size: 2rem;
+}
+
+.spanLocal {
+    align-items: center;
+    font-size: 36px;
+}
+
+.circulo2:nth-child(1) {
+    bottom: -25px;
+    right: -25px;
+    
+}
+
+.circulo2:nth-child(2) {
+    top: -25px;
+    left: -25px;
+    animation-name: move-down1;
+}
+
+@keyframes move-up6 {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes move-down1 {
+    to {
+        transform: translateY(-10px);
+    }
 }

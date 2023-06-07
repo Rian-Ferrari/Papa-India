@@ -11,6 +11,10 @@ function mudarParaInicio() {
     b_usuario.innerHTML = "";
 }
 
+function botaoDuvidaDoUsuario() {
+    window.location.href = "#fundoDuvida";
+}
+
 b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
 idUsuario = sessionStorage.ID_USUARIO;
