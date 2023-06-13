@@ -101,72 +101,16 @@ function cadastrarFarmELocal(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var local = req.body.localServer;
     var complemento = req.body.complementoServer;
-    var dia = req.body.diaServer;
-    var mes = req.body.mesServer;
-    var ano = req.body.anoServer;
-    var tipo = req.body.tipoServer;
-    var quantidade = req.body.qtdServer;
-    var fkUsuario = req.body.usuarioServer;
 
     // Faça as validações dos valores
     if (local == undefined) {
         res.status(400).send("Seu local está undefined!");
     } else if (complemento == undefined) {
         res.status(400).send("Seu complemento está undefined!");
-    } else if (dia == undefined) {
-        res.status(400).send("Seu dia está undefined!");
-    } else if (mes == undefined) {
-        res.status(400).send("Seu mes está undefined!");
-    } else if (ano == undefined) {
-        res.status(400).send("Seu ano está undefined!");
-    } else if (tipo == undefined) {
-        res.status(400).send("Seu tipo está undefined!");
-    } else if (quantidade == undefined) {
-        res.status(400).send("Seu quantidade está undefined!");
-    } else if (fkUsuario == undefined) {
-        res.status(400).send("Seu fkUsuario está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrarLocal(local, complemento)
-            .then(
-                function (resultado) {
-                    console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
-
-                    if (resultado.length == 1) {
-                        console.log(resultado);
-                        resposta.json().then(json => {
-                            console.log(json);
-                            console.log(JSON.stringify(json));
-        
-                            fkLocal = json.idLocal;
-                            cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal)
-                        });
-                        res.json(resultado[0]);
-                    } else if (resultado.length == 0) {
-                        res.status(403).send("Cadastro Local farm inválidos");
-                    } else {
-                        res.status(403).send("Error");
-                    }
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
-function cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal) {
-
-    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    usuarioModel.cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -181,7 +125,90 @@ function cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
+    }
+}
 
+function cadastrarFarm(req, res) {
+    var dia = req.body.diaServer;
+    var mes = req.body.mesServer;
+    var ano = req.body.anoServer;
+    var tipo = req.body.tipoServer;
+    var quantidade = req.body.qtdServer;
+    var fkUsuario = req.body.usuarioServer;
+    var fkLocal = req.body.localServer;
+
+    if (dia == undefined) {
+        res.status(400).send("Seu dia está undefined!");
+    } else if (mes == undefined) {
+        res.status(400).send("Seu mes está undefined!");
+    } else if (ano == undefined) {
+        res.status(400).send("Seu ano está undefined!");
+    } else if (tipo == undefined) {
+        res.status(400).send("Seu tipo está undefined!");
+    } else if (quantidade == undefined) {
+        res.status(400).send("Sua quantidade está undefined!");
+    } else if (fkUsuario == undefined) {
+        res.status(400).send("Seu fkUsuario está undefined!");
+    } else if (fkLocal == undefined) {
+        res.status(400).send("Sua fkLocal está undefined!");
+    } else {
+
+
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarFarm(dia, mes, ano, tipo, quantidade, fkUsuario, fkLocal)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+    }
+}
+
+function PegarIdLocalidade(req, res) {
+    var local = req.body.localServer;
+    var complemento = req.body.complementoServer;
+
+    // Faça as validações dos valores
+    if (local == undefined) {
+        res.status(400).send("Seu local está undefined!");
+    } else if (complemento == undefined) {
+        res.status(400).send("Seu complemento está undefined!");
+    } else {
+
+        usuarioModel.PegarIdLocalidade(local, complemento)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length == 1) {
+                        console.log(resultado);
+                        res.json(resultado[0]);
+                    } else if (resultado.length == 0) {
+                        res.status(403).send("Local e/ou Complemento inválido(s)");
+                    } else {
+                        res.status(403).send("Mais de um Local com o mesmo Complemento!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar a função PegarIdLocalidade! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
 }
 
 
@@ -191,5 +218,6 @@ module.exports = {
     cadastrar,
     listar,
     cadastrarFarmELocal,
-    cadastrarFarm
+    cadastrarFarm,
+    PegarIdLocalidade
 }

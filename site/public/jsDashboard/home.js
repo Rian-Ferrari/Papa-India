@@ -1,8 +1,8 @@
 nome = sessionStorage.NOME_USUARIO;
 email = sessionStorage.EMAIL_USUARIO;
 idUsuario = sessionStorage.ID_USUARIO;
- 
-if(!nome || !email|| !idUsuario) {
+
+if (!nome || !email || !idUsuario) {
     window.location.href = "index.html";
 }
 
@@ -33,7 +33,6 @@ idUsuario = sessionStorage.ID_USUARIO;
 
 // CADASTRAR LOCAL E FARM
 
-
 function botaoAdicionarFarmELocal() {
     var dadosDoLocal = {
         nomeLocal: input_nomeDoLocal.value,
@@ -44,33 +43,30 @@ function botaoAdicionarFarmELocal() {
         div_mensagemDeErro.innerHTML = ``;
 
         if ((dadosDoLocal.nomeLocal.length > 0 && dadosDoLocal.nomeLocal.length < 101) && dadosDoLocal.complementoLocal.length > 10 && dadosDoLocal.complementoLocal.length < 100) {
+            exibirAlertaDeErro.innerHTML = ``;
 
-            var dadosDoFarm = {
-                nomeDoLocal: input_nomeDoFarm.value,
-                diaDoFarm: input_dataDiaFarm.value,
-                mesDoFarm: input_dataMesFarm.value,
-                anoDoFarm: input_dataAnoFarm.value,
-                TipoDoFarm: input_tipoDoFarm.value,
-                QtdDoFarm: input_quantidadeDoFarm.value,
-                nomeDoUsuario: idUsuario
-            }
+            var nomeDoLocal = input_nomeDoFarm.value;
+            var diaDoFarm = input_dataDiaFarm.value;
+            var mesDoFarm = input_dataMesFarm.value;
+            var anoDoFarm = input_dataAnoFarm.value;
+            var TipoDoFarm = input_tipoDoFarm.value;
+            var QtdDoFarm = input_quantidadeDoFarm.value;
+            var nomeDoUsuario = idUsuario;
 
-
-
-            if (dadosDoLocal.nomeLocal == dadosDoFarm.nomeDoLocal) {
+            if (dadosDoLocal.nomeLocal == nomeDoLocal) {
                 exibirAlertaDeErro.innerHTML = ``;
 
-                if (dadosDoFarm.nomeDoLocal != "" && dadosDoFarm.nomeDoLocal.length < 101) {
+                if (nomeDoLocal != "" && nomeDoLocal.length < 101) {
                     exibirAlertaDeErro.innerHTML = ``;
 
-                    if (dadosDoFarm.anoDoFarm.length < 5 && (dadosDoFarm.diaDoFarm < 32
-                        && dadosDoFarm.mesDoFarm < 13)) {
+                    if (anoDoFarm.length < 5 && (diaDoFarm < 32
+                        && mesDoFarm < 13)) {
                         exibirAlertaDeErro.innerHTML = ``;
 
-                        if (dadosDoFarm.TipoDoFarm != "" && dadosDoFarm.TipoDoFarm.length < 101) {
+                        if (TipoDoFarm != "" && TipoDoFarm.length < 101) {
                             exibirAlertaDeErro.innerHTML = ``;
 
-                            if (dadosDoFarm.QtdDoFarm != 0) {
+                            if (QtdDoFarm != 0) {
                                 exibirAlertaDeErro.innerHTML = ``;
 
 
@@ -84,27 +80,18 @@ function botaoAdicionarFarmELocal() {
                                         // Agora vá para o arquivo routes/usuario.js
                                         localServer: dadosDoLocal.nomeLocal,
                                         complementoServer: dadosDoLocal.complementoLocal,
-                                        diaServer: dadosDoFarm.diaDoFarm,
-                                        mesServer: dadosDoFarm.mesDoFarm,
-                                        anoServer: dadosDoFarm.anoDoFarm,
-                                        tipoServer: dadosDoFarm.TipoDoFarm,
-                                        qtdServer: dadosDoFarm.QtdDoFarm,
-                                        usuarioServer: dadosDoFarm.idUsuario
+
                                     })
                                 }).then(function (resposta) {
 
                                     console.log("resposta: ", resposta);
 
                                     if (resposta.ok) {
-                                        resposta.json().then(json => {
-                                            console.log(json);
-                                            console.log(JSON.stringify(json));
-                        
-                                            sessionStorage.ID_LOCAL = json.idLocal;
-                        
-                                        });
-                                        // alerta de erro 1
 
+                                        PegarIdLocalidade( dadosDoLocal.nomeLocal, dadosDoLocal.complementoLocal )
+                                        // alerta de erro 1
+                                        liberarFarm(diaDoFarm, mesDoFarm, anoDoFarm, TipoDoFarm, QtdDoFarm,
+                                            nomeDoUsuario, sessionStorage.ID_LOCAL);
 
                                     } else {
 
@@ -149,4 +136,92 @@ function botaoAdicionarFarmELocal() {
         div_mensagemDeErro.innerHTML = `Campo "NOME DO LOCAL" ou 
         "COMPLEMENTO DO LOCAL" está vazio!`;
     }
+}
+
+
+
+function liberarFarm(diaDoFarm, mesDoFarm, anoDoFarm, TipoDoFarm, QtdDoFarm,
+    nomeDoUsuario, fkLocal) {
+    fetch("/usuarios/cadastrarFarm", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            diaServer: diaDoFarm,
+            mesServer: mesDoFarm,
+            anoServer: anoDoFarm,
+            tipoServer: TipoDoFarm,
+            qtdServer: QtdDoFarm,
+            usuarioServer: nomeDoUsuario,
+            localServer: fkLocal
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+            });
+            // alerta de erro 1
+
+
+        } else {
+
+            // alerta de erro
+
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+
+    });
+
+    return false;
+}
+
+function PegarIdLocalidade(local, complemento) {
+    fetch("/usuarios/PegarIdLocalidade", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            localServer: local,
+            complementoServer: complemento
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.ID_LOCAL = json.idLocal;
+
+            });
+            // alerta de erro 1
+
+
+        } else {
+
+            // alerta de erro
+
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+
+    });
+
+    return false;
 }

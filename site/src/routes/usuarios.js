@@ -20,6 +20,14 @@ router.post("/cadastrarFarmELocal", function (req, res) {
     usuarioController.cadastrarFarmELocal(req, res);
 })
 
+router.post("/cadastrarFarm", function (req, res) {
+    usuarioController.cadastrarFarm(req, res);
+})
+
+router.post("/PegarIdLocalidade", function (req, res) {
+    usuarioController.PegarIdLocalidade(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });

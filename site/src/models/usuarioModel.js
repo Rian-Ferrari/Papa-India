@@ -32,7 +32,7 @@ function cadastrar(nome, email, senha) {
 }
 
 function cadastrarLocal(local, complemento) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",local, complemento, dia, mes, ano, tipo, quantidade, fkUsuario);
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",local, complemento);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
@@ -43,7 +43,6 @@ function cadastrarLocal(local, complemento) {
     //     INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${mes}-${dia}-${ano}', '${tipo}', '${quantidade}', '${fkUsuario}', '${local}');
     // `;
     console.log("Executando a instrução SQL: \n" + instrucao);
-    PegarIdLocalidade(local, complemento)
     return database.executar(instrucao);
 }
 
@@ -65,7 +64,7 @@ function cadastrarFarm(mes, dia, ano, tipo, quantidade, fkUsuario, fkLocal) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${mes}-${dia}-${ano}', '${tipo}', '${quantidade}', '${fkUsuario}', '${fkLocal}');
+        INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${ano}-${mes}-${dia}', '${tipo}', '${quantidade}', '${fkUsuario}', '${fkLocal}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -76,5 +75,6 @@ module.exports = {
     cadastrar,
     listar,
     cadastrarLocal,
-    cadastrarFarm
+    cadastrarFarm,
+    PegarIdLocalidade
 };
