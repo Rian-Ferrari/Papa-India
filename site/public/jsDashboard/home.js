@@ -87,15 +87,46 @@ function botaoAdicionarFarmELocal() {
                                     console.log("resposta: ", resposta);
 
                                     if (resposta.ok) {
+                                        const Toast = Swal.mixin({
+                                            toast: true,
+                                            position: 'top-end',
+                                            showConfirmButton: false,
+                                            timer: 3000,
+                                            timerProgressBar: true,
+                                            didOpen: (toast) => {
+                                              toast.addEventListener('mouseenter', Swal.stopTimer)
+                                              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                            }
+                                          })
+                                          
+                                          Toast.fire({
+                                            icon: 'success',
+                                            title: 'Dados cadastrados com sucesso!'
+                                          })
 
                                         PegarIdLocalidade( dadosDoLocal.nomeLocal, dadosDoLocal.complementoLocal )
-                                        // alerta de erro 1
+                                        
                                         liberarFarm(diaDoFarm, mesDoFarm, anoDoFarm, TipoDoFarm, QtdDoFarm,
                                             nomeDoUsuario, sessionStorage.ID_LOCAL);
 
                                     } else {
 
-                                        // alerta de erro
+                                        const Toast = Swal.mixin({
+                                            toast: true,
+                                            position: 'top-end',
+                                            showConfirmButton: false,
+                                            timer: 3000,
+                                            timerProgressBar: true,
+                                            didOpen: (toast) => {
+                                              toast.addEventListener('mouseenter', Swal.stopTimer)
+                                              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                            }
+                                          })
+                                          
+                                          Toast.fire({
+                                            icon: 'error',
+                                            title: 'Ocorreu um erro ao cadastrar os dados, tente novamente mais tarde!'
+                                          })
 
                                         throw ("Houve um erro ao tentar realizar o cadastro!");
                                     }
