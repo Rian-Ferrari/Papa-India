@@ -75,7 +75,7 @@ function cadastrarFarm(mes, dia, ano, tipo, quantidade, fkUsuario, fkLocal) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${ano}-${mes}-${dia}', '${tipo}', '${quantidade}', '${fkUsuario}', '${fkLocal}');
+        INSERT INTO farms (dtFarms, tipo, qtdFarm, fkUsuario, fkLocal) VALUES ('${ano}-${dia}-${mes}', '${tipo}', '${quantidade}', '${fkUsuario}', '${fkLocal}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

@@ -3,7 +3,7 @@ email = sessionStorage.EMAIL_USUARIO;
 idUsuario = sessionStorage.ID_USUARIO;
 
 if (!nome || !email || !idUsuario) {
-    window.location.href = "index.html";
+    window.location.href = "Login.html";
 }
 
 function abrirNav() {
@@ -94,18 +94,18 @@ function botaoAdicionarFarmELocal() {
                                             timer: 3000,
                                             timerProgressBar: true,
                                             didOpen: (toast) => {
-                                              toast.addEventListener('mouseenter', Swal.stopTimer)
-                                              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                toast.addEventListener('mouseleave', Swal.resumeTimer)
                                             }
-                                          })
-                                          
-                                          Toast.fire({
+                                        })
+
+                                        Toast.fire({
                                             icon: 'success',
                                             title: 'Dados cadastrados com sucesso!'
-                                          })
+                                        })
 
-                                        PegarIdLocalidade( dadosDoLocal.nomeLocal, dadosDoLocal.complementoLocal )
-                                        
+                                        PegarIdLocalidade(dadosDoLocal.nomeLocal, dadosDoLocal.complementoLocal)
+
                                         liberarFarm(diaDoFarm, mesDoFarm, anoDoFarm, TipoDoFarm, QtdDoFarm,
                                             nomeDoUsuario, sessionStorage.ID_LOCAL);
 
@@ -118,15 +118,15 @@ function botaoAdicionarFarmELocal() {
                                             timer: 3000,
                                             timerProgressBar: true,
                                             didOpen: (toast) => {
-                                              toast.addEventListener('mouseenter', Swal.stopTimer)
-                                              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                toast.addEventListener('mouseleave', Swal.resumeTimer)
                                             }
-                                          })
-                                          
-                                          Toast.fire({
+                                        })
+
+                                        Toast.fire({
                                             icon: 'error',
                                             title: 'Ocorreu um erro ao cadastrar os dados, tente novamente mais tarde!'
-                                          })
+                                        })
 
                                         throw ("Houve um erro ao tentar realizar o cadastro!");
                                     }

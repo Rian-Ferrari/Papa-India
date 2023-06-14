@@ -3,7 +3,7 @@ email = sessionStorage.EMAIL_USUARIO;
 idUsuario = sessionStorage.ID_USUARIO;
 
 if(!nome || !email|| !idUsuario) {
-    window.location.href = "index.html";
+    window.location.href = "Login.html";
 }
 
 function abrirNav() {
@@ -15,6 +15,10 @@ function fecharNav() {
 }
 
 function mudarParaInicio() {
+    sessionStorage.EMAIL_USUARIO = ""
+    sessionStorage.NOME_USUARIO = "";
+    sessionStorage.ID_USUARIO = "";
+
     window.location.href = "index.html";
     b_usuario.innerHTML = "";
 }
@@ -163,6 +167,8 @@ function CalcularNumeroAdicionado() {
                                           Maior quantidade "farmada": ${maior_quantidade} <br>
                                           Menor quantidade "farmada": ${menor_quantidade} <br>
                                           Soma de tudo: ${soma}`;
+
+        listaDaCalculadora = [];
 
     }   else    {
         exibir_mensagem_erro.innerHTML = `Adicione um número se quiser calcular!`;
