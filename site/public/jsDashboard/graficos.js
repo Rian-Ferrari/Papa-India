@@ -24,7 +24,7 @@ b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 function obterDadosGrafico() {
 
 
-    fetch(`/usuarios/puxarFarms`, { cache: "no-store" })
+    fetch(`/usuarios/puxarFarms/${idUsuario}`, { cache: "no-store" })
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
@@ -50,21 +50,19 @@ function plotarGrafico(resposta) {
         labels: [],
         datasets: [
             {
-                label: 'Quantidade de Farms',
+                label: 'Tipo do Farms',
                 backgroundColor: '#32b9cd8f',
                 data: []
             },
         ]
     };
 
+    for(var i = 0; i < resposta.length; i++) {
+        dados.labels.push(resposta[i].TipoDoFarm);
+    }
+
     for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        if (registro.time == "tipo") {
-            dados.datasets[0].data.push(registro.farm);
-        } else {
-            dados.datasets[0].data.push(registro.farm);
-        }
-        // dados.labels.data.push(registro.nome);
+        dados.datasets[0].data.push(resposta[i].QuantidadeDoFarm);
     }
 
     console.log(JSON.stringify(dados));
@@ -89,7 +87,7 @@ function plotarGrafico(resposta) {
                     id: 'y-temperatura',
                     ticks: {
                         beginAtZero: true,
-                        max: 30,
+                        max: 1000,
                         min: 0
                     }
                 }, {
@@ -110,4 +108,63 @@ function plotarGrafico(resposta) {
             }
         }
     });
+}
+
+var listaDaCalculadora = [];
+var ultimoNumeroAdicionado = 0;
+
+function AdicionarNumero() {
+    var numeroAdicionado = Number(input_numero.value);
+
+    if  (numeroAdicionado > 0)  {
+        exibir_mensagem_erro.innerHTML = ``;
+        console.log("número adicionado na lista");
+        listaDaCalculadora.push(numeroAdicionado);
+        ultimoNumeroAdicionado = numeroAdicionado;
+        exibir_mensagem_erro.innerHTML = `O número ${numeroAdicionado} foi adicionado.`
+    }   else    {
+        exibir_mensagem_erro.innerHTML = `Digite um valor válido!`;
+    }
+}
+
+function LimparUltimoDado() {
+
+    if  (listaDaCalculadora >= 0)  {
+        exibir_mensagem_erro.innerHTML = ``;
+        console.log("conteúdo removido na lista");
+        listaDaCalculadora.pop();
+
+        exibir_mensagem_erro.innerHTML = `O número ${ultimoNumeroAdicionado} foi removido.`
+    }   else    {
+        exibir_mensagem_erro.innerHTML = `Adicione um número se quiser remover!`;
+    }
+}
+
+function CalcularNumeroAdicionado() {
+    if  (listaDaCalculadora.length > 0)  {
+
+        var maior_quantidade = listaDaCalculadora[0];
+        var menor_quantidade = listaDaCalculadora[0];
+        var soma = 0; 
+        
+        for (var i = 0; i < listaDaCalculadora.length; i++) {
+            soma += listaDaCalculadora[i];
+            
+            if  (listaDaCalculadora[i] > maior_quantidade)  {
+                maior_quantidade = listaDaCalculadora[i];
+            }
+            if  (listaDaCalculadora[i] < menor_quantidade)  {
+                menor_quantidade = listaDaCalculadora[i];
+            }
+        }
+        var media = soma / listaDaCalculadora.length;
+        
+        exibir_mensagem_erro.innerHTML = `<br> <br>Média: ${media} <br>
+                                          Maior quantidade "farmada": ${maior_quantidade} <br>
+                                          Menor quantidade "farmada": ${menor_quantidade} <br>
+                                          Soma de tudo: ${soma}`;
+
+    }   else    {
+        exibir_mensagem_erro.innerHTML = `Adicione um número se quiser calcular!`;
+    }
 }

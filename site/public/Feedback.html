@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,12 @@
     <title>Feedback | Refúgio 76</title>
     <link rel="shortcut icon" href="imagens/faviconRefugio76.jpeg" type="image/x-icon">
     <link rel="stylesheet" href="./css/feedback.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+
 <body>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -17,22 +21,22 @@
     <div class="header">
         <div class="container">
             <img onclick="mudarParaInicio()" src="./imagens/logoRefugio76Menu.jpg" alt="Refúgio76">
-                <div id="hamburger" class="overlay">
+            <div id="hamburger" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="fecharNav()">&times;</a>
-                
-                    <div class="overlay-content">
+
+                <div class="overlay-content">
                     <a href="./index.html">Inicial</a>
                     <a href="./Cadastro.html">Cadastro</a>
                     <a href="./Login.html">Login</a>
                     <a href="#">Feedback</a>
                     <a href="./Sobremim.html">Sobre Mim</a>
-                    </div>
-
                 </div>
-                
-                <button class="nav-button" onclick="abrirNav()">
-                    <i class="fa-solid fa-bars fa-2x"></i>
-                </button>
+
+            </div>
+
+            <button class="nav-button" onclick="abrirNav()">
+                <i class="fa-solid fa-bars fa-2x"></i>
+            </button>
         </div>
     </div>
 
@@ -49,9 +53,9 @@
             <div class="slide">
                 <div class="contentproje">
                     <h3>CADASTRE-SE JÁ!</h3>
-                        <p>
+                    <p>
                         JUNTE-SE A NÓS, CRIE UMA CONTA.
-                        </p>
+                    </p>
                     <a href="./Cadastro.html" class="btnproj" style="color: black;">CLIQUE AQUI</a>
                 </div>
             </div>
@@ -69,9 +73,9 @@
             <div class="slide">
                 <div class="contentproje">
                     <h3>Feedback</h3>
-                        <p>
+                    <p>
                         ENVIE AQUI O SEU FEEDBACK!
-                        </p>
+                    </p>
                     <a href="./Feedback.html" class="btnproj" style="color: black;">CLIQUE AQUI</a>
                 </div>
             </div>
@@ -89,8 +93,9 @@
             </div>
         </div>
 
-        <div id="prev" onclick="prev()"> < </div>
-        <div id="next" onclick="next()"> > </div>
+        <div id="prev" onclick="prev()">
+            < </div>
+                <div id="next" onclick="next()"> > </div>
 
     </section>
     <script src="./javascript/Feedback.js"></script>
@@ -102,38 +107,38 @@
         <h2 class="tituloFeedback"><span class="tituloFeedbackSpan">FEEDBACK</span></h2>
 
         <div class="Feedback">
-            
+
 
             <div class="VaultBoyCarisma">
                 <img src="./imagens/vaultBoyFeedback.png" alt="VaultBoyAdrenalina">
             </div>
 
-            <div class="inputDeFeedback">
+            <form action="https://formsubmit.co/1e8dc3616b4961d61de35e82247a5aee" method="POST" class="inputDeFeedback">
                 <b class="textoDasInputs">NOME</b>
-                <input class="inputDeEscrita" id="input_nome" type="text" >
+                <input class="inputDeEscrita" name="nome" id="input_nome" required type="text">
                 <b class="textoDasInputs">E-MAIL</b>
-                <input class="inputDeEscrita" id="input_email" type="email">
+                <input class="inputDeEscrita" name="email" id="input_email" required type="email">
                 <b class="textoDasInputs">MENSAGEM</b>
-                <input class="inputDeMensagem" id="input_mensagem" type="text">
-            </div>
+                <input class="inputDeMensagem" name="mensagem" id="input_mensagem" required type="message">
+                <div class="botaoDoFeedback">
+                    <button class="botaoEnviar" type="submit" onclick="botaoFeedbackUsuario()">
+                        ENVIAR
+                    </button>
+                </div>
+            </form>
         </div>
 
         <div id="div_FeedbackDoUsuario" class="exibirFeedbackDoUsuario">
 
         </div>
 
-        <div class="botaoDoFeedback">
-            <button class="botaoEnviar" onclick="botaoFeedbackUsuario()">
-                ENVIAR
-            </button>
-        </div>
 
         <hr class="linha">
 
         <div class="FeedbackDeCriarFeedback">
             <div class="tituloEFeedback">
                 <h2 class="tituloFeedback2"><i><b>POR QUE EU DEVO CRIAR UM FEEDBACK?</b></i></h2>
-                    <span class="Feedback">Suas dúvidas, reporte de bugs, melhorias e até problemas com nosso
+                <span class="Feedback">Suas dúvidas, reporte de bugs, melhorias e até problemas com nosso
                     site e sistemas podem ser perguntadas aqui e respondidas por E-mail
                     até você.</span>
             </div>
@@ -141,25 +146,25 @@
 
         <hr class="linha">
 
-                    
-    <div id="div_criarSeuCadastro" class="criarSeuCadastro">
-        <div class="imagemCadastroFinal">
-            <div class="spanFeedback">
+
+        <div id="div_criarSeuCadastro" class="criarSeuCadastro">
+            <div class="imagemCadastroFinal">
+                <div class="spanFeedback">
                     <p>
-                        Para conseguir enviar um Feedback, é preciso 
-                        ter uma conta, clique no botão para cadastrar-se.
+                        Caso não
+                        tenha uma conta, clique no botão para cadastrar-se.
                     </p>
 
                     <button class="botaoFeedbackParaCadastrar" onclick="botaoFeedbackParaCadastrar()">
                         CADASTRAR
                     </button>
+                </div>
             </div>
         </div>
-    </div>           
-            
-            
-                
-            
+
+
+
+
     </div>
 
 </body>

@@ -56,6 +56,7 @@ function botaoFeedbackUsuario() {
                     showConfirmButton: false,
                     timer: 1500
                   })
+
             }   else    {
                 div_FeedbackDoUsuario.innerHTML = `<b style="color:red;">SUA MENSAGEM DEVE SER DE 0-300 CARACTERES 
                 !</b>`;

@@ -375,10 +375,10 @@ strong {
     border-radius: 50px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #036900,
-                  -20px -20px 60px #434343;
-   }
+        -20px -20px 60px #434343;
+}
 
-   .cardMedia {
+.cardMedia {
     padding: 10rem 20rem;
     display: flex;
     width: 190px;
@@ -387,14 +387,93 @@ strong {
     border-radius: 50px;
     background: #e0e0e0;
     box-shadow: 20px 20px 60px #036900,
-                  -20px -20px 60px #434343;
-   }
+        -20px -20px 60px #434343;
+    align-items: center;
+    flex-direction: column;
+}
 
-   .linhaGraficos {
-        padding-top: 10rem;
-   }
+.linhaGraficos {
+    padding-top: 10rem;
+}
 
+/* Calculadora */
 
+.cardCalculadora {
+    border: 3px solid #05FF00;
+    background-color: black;
+    height: 800px;
+    width: 500px;
+    border-radius: 20px;
+    text-align: center;
+}
 
+.titulo {
+    padding-bottom: 2rem;
+}
 
+.titleCal {
+    color: #05FF00;
+    font-size: 30px;
+}
 
+.text {
+    font-size: 15px;
+    color: #05FF00;
+}
+
+.inputAdicionar {
+    border-radius: 23px;
+    border: 2px solid #05FF00;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    align-items: center;
+}
+
+/* Botao Adicionar  */
+
+.btnAdicionar {
+    border: none;
+    width: 150px;
+    background-color: #05FF00;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btnAdicionar:hover {
+    background-color: #036900;
+}
+
+.btnRemover {
+    border: none;
+    width: 150px;
+    background-color: #05FF00;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btnRemover:hover {
+    background-color: #036900;
+}
+
+.btnCalcular {
+    border: none;
+    width: 150px;
+    background-color: #05FF00;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btnCalcular:hover {
+    background-color: #036900;
+}
+
+/* Exibição */
+
+#exibir_mensagem_erro {
+    padding-top: 1rem;
+    color: #05FF00;
+} 
