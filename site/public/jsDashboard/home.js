@@ -105,9 +105,12 @@ function botaoAdicionarFarmELocal() {
                                         })
 
                                         PegarIdLocalidade(dadosDoLocal.nomeLocal, dadosDoLocal.complementoLocal)
-
-                                        liberarFarm(diaDoFarm, mesDoFarm, anoDoFarm, TipoDoFarm, QtdDoFarm,
-                                            nomeDoUsuario, sessionStorage.ID_LOCAL);
+                                        
+                                        setTimeout(function () {
+                                            liberarFarm(diaDoFarm, mesDoFarm, anoDoFarm, TipoDoFarm, QtdDoFarm,
+                                                nomeDoUsuario, sessionStorage.ID_LOCAL);
+                                        }, 2000);
+                                        
 
                                     } else {
 
