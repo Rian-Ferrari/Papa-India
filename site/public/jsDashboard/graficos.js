@@ -101,7 +101,7 @@ function plotarGrafico(resposta) {
                     id: 'y-umidade',
                     ticks: {
                         beginAtZero: true,
-                        max: 30,
+                        max: 1200,
                         min: 0
                     },
 
